@@ -14,4 +14,22 @@ angular.module('webLaseAppApp')
         console.log(flowArray.length);
       }
     };
+
+    $scope.uploadImage = function(flowArray) {
+      console.log(flowArray[0]);
+      // $http.post('/upload', flowArray[0], {headers: {'Accept': 'image/*', 'Content-Type': undefined }})
+      //   .success(function(data) {
+      //     flowArray = [];
+      //     console.log(data);
+      //   })
+      //   .error(function(data) {
+      //     console.log('error:' + data + ". Get it together, Cline.");
+      //   });
+      $http.post('/saveImg', {'test': 'hello!', 'name': 'me'}).success(function(data){
+        console.log(data);
+      });
+
+    };
   });
+
+
