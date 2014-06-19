@@ -1,0 +1,55 @@
+<div ng-include="'partials/navbar'"></div>
+
+<!-- <div class="jumbotron">
+  <h1>'Allo, 'Allo <span ng-show="currentUser">{{ currentUser.name }}</span>!</h1>
+  <p class="lead">
+    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
+    Always a pleasure scaffolding your apps.
+  </p>
+  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+</div>
+
+<div class="row marketing">
+  <div ng-repeat="thing in awesomeThings">
+      <h4>{{thing.name}}</h4>
+      <p>{{thing.info}}</p>
+  </div>
+</div> -->
+
+
+<div flow-init="{target: '/upload'}"
+     flow-files-submitted="$flow.upload()"
+     flow-file-success="$file.msg = $message">
+
+<!--   <input type="file" flow-btn/>
+  Input OR Other element as upload button -->
+  <span class="btn" ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Upload File</span>
+
+  <span class="btn" ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}" ng-click="moreThanOne($flow.files)">Change File</span>
+
+
+
+<!--   <table>
+    <tr ng-repeat="file in $flow.files">
+        <td>{{$index+1}}</td>
+        <td>{{file.name}}</td>
+        <td>{{file.msg}}</td>
+    </tr>
+  </table> -->
+
+<!--   <div class="alert" flow-drop>
+    Drag And Drop your file here
+</div> -->
+  <div class="thumbnail" ng-hide="$flow.files.length">
+    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
+  </div>
+
+  <div class="thumbnail" ng-show="$flow.files.length">
+    <img flow-img="$flow.files[0]" />
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>♥ from the Yeoman team</p>
+</div>
