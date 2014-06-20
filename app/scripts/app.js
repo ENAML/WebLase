@@ -5,7 +5,8 @@ angular.module('webLaseAppApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'flow'
+  'flow',
+  'angularFileUpload'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

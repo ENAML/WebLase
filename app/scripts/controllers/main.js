@@ -1,35 +1,76 @@
 'use strict';
 
 angular.module('webLaseAppApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $http.get('/api/awesomeThings').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-    });
+  .controller('MainCtrl', function ($scope, $http, $upload) {
 
-    $scope.moreThanOne = function(flowArray) {
 
-      if (flowArray.length >= 1) {
-        flowArray[0] = flowArray[1];
-        flowArray.pop();
-        console.log(flowArray.length);
-      }
-    };
 
-    $scope.uploadImage = function(flowArray) {
-      console.log(flowArray[0]);
-      // $http.post('/upload', flowArray[0], {headers: {'Accept': 'image/*', 'Content-Type': undefined }})
-      //   .success(function(data) {
-      //     flowArray = [];
-      //     console.log(data);
-      //   })
-      //   .error(function(data) {
-      //     console.log('error:' + data + ". Get it together, Cline.");
-      //   });
-      $http.post('/saveImg', {'test': 'hello!', 'name': 'me'}).success(function(data){
+  $scope.onFileSelect = function($files) {
+    //$files: an array of files selected, each file has name, size, and type.
+
+    console.log($files);
+
+    for (var i = 0; i < $files.length; i++) {
+      var file = $files[i];
+      $scope.upload = $upload.upload({
+        url: '/Upload', //upload.php script, node.js route, or servlet url
+        // method: 'POST' or 'PUT',
+        // headers: {'header-key': 'header-value'},
+        // withCredentials: true,
+        data: {myObj: $scope.myModelObj},
+        file: file, // or list of files: $files for html5 only
+        /* set the file formData name ('Content-Desposition'). Default is 'file' */
+        //fileFormDataName: myFile, //or a list of names for multiple files (html5).
+        /* customize how data is added to formData. See #40#issuecomment-28612000 for sample code */
+        //formDataAppender: function(formData, key, val){}
+      }).progress(function(evt) {
+        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+      }).success(function(data, status, headers, config) {
+        // file is uploaded successfully
         console.log(data);
       });
+      //.error(...)
+      //.then(success, error, progress);
+      //.xhr(function(xhr){xhr.upload.addEventListener(...)})// access and attach any event listener to XMLHttpRequest.
+    }
+    /* alternative way of uploading, send the file binary with the file's content-type.
+       Could be used to upload files to CouchDB, imgur, etc... html5 FileReader is needed.
+       It could also be used to monitor the progress of a normal http post/put request with large data*/
+    // $scope.upload = $upload.http({...})  see 88#issuecomment-31366487 for sample code.
+  };
 
-    };
-  });
+
+
+    // $http.get('/api/awesomeThings').success(function(awesomeThings) {
+    //   $scope.awesomeThings = awesomeThings;
+    // });
+
+    // $scope.moreThanOne = function(flowArray) {
+
+    //   if (flowArray.length >= 1) {
+    //     flowArray[0] = flowArray[1];
+    //     flowArray.pop();
+    //     console.log(flowArray.length);
+    //   }
+    // };
+
+    // $scope.uploadImage = function(flowArray) {
+    //   console.log(flowArray[0]);
+    //   $http.post('/upload', flowArray[0], {headers: {'Content-Type': undefined }})
+    //     .success(function(data) {
+    //       flowArray = [];
+    //       console.log(data);
+    //     })
+    //     .error(function(data) {
+    //       console.log('error:' + data + ". Get it together, Cline.");
+    //     });
+
+    //   $http.post('/saveImg', {'test': 'hello!', 'name': 'me'}).success(function(data){
+    //     console.log(data);
+    //   });
+    // };
+
+
+});
 
 
