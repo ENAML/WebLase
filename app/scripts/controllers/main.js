@@ -9,7 +9,10 @@ angular.module('webLaseAppApp')
     //$files: an array of files selected, each file has name, size, and type.
 
     console.log($files);
+    $scope.files = $files;
+  };
 
+  $scope.submitFiles = function($files) {
     for (var i = 0; i < $files.length; i++) {
       var file = $files[i];
       $scope.upload = $upload.upload({
@@ -37,6 +40,7 @@ angular.module('webLaseAppApp')
        Could be used to upload files to CouchDB, imgur, etc... html5 FileReader is needed.
        It could also be used to monitor the progress of a normal http post/put request with large data*/
     // $scope.upload = $upload.http({...})  see 88#issuecomment-31366487 for sample code.
+
   };
 
 
@@ -45,30 +49,7 @@ angular.module('webLaseAppApp')
     //   $scope.awesomeThings = awesomeThings;
     // });
 
-    // $scope.moreThanOne = function(flowArray) {
 
-    //   if (flowArray.length >= 1) {
-    //     flowArray[0] = flowArray[1];
-    //     flowArray.pop();
-    //     console.log(flowArray.length);
-    //   }
-    // };
-
-    // $scope.uploadImage = function(flowArray) {
-    //   console.log(flowArray[0]);
-    //   $http.post('/upload', flowArray[0], {headers: {'Content-Type': undefined }})
-    //     .success(function(data) {
-    //       flowArray = [];
-    //       console.log(data);
-    //     })
-    //     .error(function(data) {
-    //       console.log('error:' + data + ". Get it together, Cline.");
-    //     });
-
-    //   $http.post('/saveImg', {'test': 'hello!', 'name': 'me'}).success(function(data){
-    //     console.log(data);
-    //   });
-    // };
 
 
 });

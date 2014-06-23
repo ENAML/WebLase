@@ -1,14 +1,14 @@
 <div ng-include="'partials/navbar'"></div>
 
   <div >
-    <input type="text" ng-model="myModelObj" placeholder="name">
+    <!-- <input type="text" ng-model="myModelObj" placeholder="name"> -->
     <input type="file" ng-file-select="onFileSelect($files)" accept="image/*">
 <!--     <input type="file" ng-file-select="onFileSelect($files)" multiple> -->
     <!-- <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
           ng-show="dropSupported">drop files here</div>
     <div ng-file-drop-available="dropSupported=true"
           ng-show="!dropSupported">HTML5 Drop File is not supported!</div> -->
-    <button ng-click="upload.abort()">Cancel Upload</button>
+    <button ng-click="submitFiles(files)">Upload  Upload Upload Upload</button>
   </div>
 
 <!--   <div class="thumbnail" ng-hide="$files.length">
