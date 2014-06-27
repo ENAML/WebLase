@@ -1,6 +1,15 @@
 <div ng-include="'partials/navbar'"></div>
 
-  <div >
+
+
+  <div id="sketch">
+
+    <canvas id="paint"></canvas>
+  </div>
+
+
+
+  <div id = "upload">
     <!-- <input type="text" ng-model="myModelObj" placeholder="name"> -->
     <input type="file" ng-file-select="onFileSelect($files)" accept="image/*">
 <!--     <input type="file" ng-file-select="onFileSelect($files)" multiple> -->
