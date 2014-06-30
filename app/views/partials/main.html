@@ -11,14 +11,19 @@
       <canvas id="paint"></canvas>
 
     </div>
-  <div id='live-stream' ng-hide="initial"> 
-    
+
+  <div id='live-stream' ng-hide="initial">
   </div>
+
+    <div id='canvasActions'>
+      <button ng-click="uploadCanvas()">Upload Canvas Image</button>
+      <button>Reset Canvas</button>
+    </div>
 
 
 <!-- make btn on side -->
     <div id ="upload" ng-show="initial">
-      
+
       <input id="filey" type="file" ng-file-select="onFileSelect($files)" accept="image/*">
       <a id="arrow" ng-click="submitFiles(files)">
         <div id="upload-btn"></div>

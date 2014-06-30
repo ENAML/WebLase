@@ -3,22 +3,41 @@
 angular.module('webLaseAppApp')
   .controller('MainCtrl', function ($scope, $http, $upload) {
 
+    $scope.uploadCanvas = function() {
+      var canvas = document.getElementById('paint');
+      var dataURL = canvas.toDataURL();
+      console.log(dataURL);
+
+      $.ajax({
+          type: "POST",
+          url: "/UploadCanvas",
+          data: {
+              files: dataURL
+          }
+      }).done(function(o) {
+          console.log('all_saved');
+
+      });
+    };
+
+
+
     $scope.initial = false;
-    
+
 
     $scope.view = function() {
       $scope.initial = false;
- $('#bb').removeClass( "while-viewing" );
+      $('#bb').removeClass( "while-viewing" );
       $('#title').css("color", "white");
       $('#description').css("color", "black");
-    }
+    };
 
     $scope.draw = function() {
       $scope.initial = true;
       $('#bb').addClass( "while-viewing" );
       $('#title').css("color", "black");
       $('#description').css("color", "white");
-    }
+    };
 
 
   $scope.onFileSelect = function($files) {

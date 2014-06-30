@@ -26,7 +26,7 @@ window.onload=function(){
     ctx.lineWidth = 10;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.strokeStyle = '#1047F2';
+    ctx.strokeStyle = 'black'; //'#1047F2'
 
     canvas.addEventListener('mousedown', function(e) {
         ctx.beginPath();
