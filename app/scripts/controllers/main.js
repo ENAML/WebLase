@@ -1,8 +1,26 @@
-'use strict';
+// 'use strict';
 
 angular.module('webLaseAppApp')
   .controller('MainCtrl', function ($scope, $http, $upload) {
 
+    $scope.initial = false;
+    
+
+    $scope.view = function() {
+      $scope.initial = false;
+      $('#bb').addClass( "while-viewing" );
+       $('#title').css("color", "black");
+       $('#description').css("color", "white");
+    }
+
+    $scope.draw = function() {
+      $scope.initial = true;
+      $('#bb').removeClass( "while-viewing" );
+
+
+      $('#title').css("color", "white");
+      $('#description').css("color", "black");
+    }
 
 
   $scope.onFileSelect = function($files) {
@@ -42,16 +60,6 @@ angular.module('webLaseAppApp')
     // $scope.upload = $upload.http({...})  see 88#issuecomment-31366487 for sample code.
 
   };
-
-
-
-    // $http.get('/api/awesomeThings').success(function(awesomeThings) {
-    //   $scope.awesomeThings = awesomeThings;
-    // });
-
-
-
-
 });
 
 

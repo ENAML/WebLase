@@ -1,33 +1,24 @@
-<div ng-include="'partials/navbar'"></div>
 
+    <div id='border'>
+    <span class="btn-group">
+          <button name='toggle' type="button" id='draw' ng-click='draw()' class="btn btn-danger"> DRAW</input>
+          <button name ='toggle' type="button" id='view' ng-click='view()' class="btn btn-default"> VIEW</input>
+    </span>
+  </div>
+  </div>
+    <div id="sketch" ng-show="initial">
 
+      <canvas id="paint"></canvas>
 
-  <div id="sketch">
-
-    <canvas id="paint"></canvas>
+    </div>
+  <div id='live-stream' ng-hide="initial"> 
+    
   </div>
 
 
-
-  <div id = "upload">
-    <!-- <input type="text" ng-model="myModelObj" placeholder="name"> -->
-    <input type="file" ng-file-select="onFileSelect($files)" accept="image/*">
-<!--     <input type="file" ng-file-select="onFileSelect($files)" multiple> -->
-    <!-- <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
-          ng-show="dropSupported">drop files here</div>
-    <div ng-file-drop-available="dropSupported=true"
-          ng-show="!dropSupported">HTML5 Drop File is not supported!</div> -->
-    <button ng-click="submitFiles(files)">Upload  Upload Upload Upload</button>
-  </div>
-
-<!--   <div class="thumbnail" ng-hide="$files.length">
-    <img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" />
-  </div>
-
-  <div class="thumbnail" ng-show="$files.length">
-    <img src="{{$files[0]}}" />
-  </div> -->
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
-</div>
+<!-- make btn on side -->
+    <div id ="upload">
+      
+      <input id="filey" type="file" ng-file-select="onFileSelect($files)" accept="image/*">
+      <a id="arrow" ng-click="submitFiles(files)"><img src="/images/upload.png" alt="upload" width='30px'></a>
+    </div>
