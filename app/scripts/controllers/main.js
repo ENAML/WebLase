@@ -8,18 +8,16 @@ angular.module('webLaseAppApp')
 
     $scope.view = function() {
       $scope.initial = false;
-      $('#bb').addClass( "while-viewing" );
-       $('#title').css("color", "black");
-       $('#description').css("color", "white");
+ $('#bb').removeClass( "while-viewing" );
+      $('#title').css("color", "white");
+      $('#description').css("color", "black");
     }
 
     $scope.draw = function() {
       $scope.initial = true;
-      $('#bb').removeClass( "while-viewing" );
-
-
-      $('#title').css("color", "white");
-      $('#description').css("color", "black");
+      $('#bb').addClass( "while-viewing" );
+      $('#title').css("color", "black");
+      $('#description').css("color", "white");
     }
 
 

@@ -1,8 +1,8 @@
 
     <div id='border'>
     <span class="btn-group">
-          <button name='toggle' type="button" id='draw' ng-click='draw()' class="btn btn-danger"> DRAW</input>
-          <button name ='toggle' type="button" id='view' ng-click='view()' class="btn btn-default"> VIEW</input>
+          <button name='toggle' type="button" id='draw' ng-click='draw()' class="btn btn-danger">SUBMIT</input>
+          <button name ='toggle' type="button" id='view' ng-click='view()' class="btn btn-default"> VIEW </input>
     </span>
   </div>
   </div>
@@ -17,8 +17,11 @@
 
 
 <!-- make btn on side -->
-    <div id ="upload">
+    <div id ="upload" ng-show="initial">
       
       <input id="filey" type="file" ng-file-select="onFileSelect($files)" accept="image/*">
-      <a id="arrow" ng-click="submitFiles(files)"><img src="/images/upload.png" alt="upload" width='30px'></a>
+      <a id="arrow" ng-click="submitFiles(files)">
+        <div id="upload-btn"></div>
+      </a>
+      <p id='direction'> select an image and click the arrow to upload it</p>
     </div>
