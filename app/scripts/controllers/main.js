@@ -20,23 +20,24 @@ angular.module('webLaseAppApp')
       });
     };
 
+    $scope.clearCanvas = function() {
 
+      var canvas = document.getElementById('paint');
+      var context = canvas.getContext('2d');
+
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    }
 
     $scope.initial = false;
 
 
     $scope.view = function() {
       $scope.initial = false;
-      $('#bb').removeClass( "while-viewing" );
-      $('#title').css("color", "white");
-      $('#description').css("color", "black");
+
     };
 
-    $scope.draw = function() {
+    $scope.submit = function() {
       $scope.initial = true;
-      $('#bb').addClass( "while-viewing" );
-      $('#title').css("color", "black");
-      $('#description').css("color", "white");
     };
 
 

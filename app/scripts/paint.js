@@ -23,10 +23,10 @@ window.onload=function(){
     }, false);
 
     /* Drawing on Paint App */
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 3;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
-    ctx.strokeStyle = 'black'; //'#1047F2'
+    ctx.strokeStyle = 'black';
 
     canvas.addEventListener('mousedown', function(e) {
         ctx.beginPath();

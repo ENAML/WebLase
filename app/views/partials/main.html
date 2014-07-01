@@ -1,8 +1,8 @@
 
     <div id='border'>
     <span class="btn-group">
-          <button name='toggle' type="button" id='draw' ng-click='draw()' class="btn btn-danger">SUBMIT</input>
-          <button name ='toggle' type="button" id='view' ng-click='view()' class="btn btn-default"> VIEW </input>
+          <button submit name='toggle' type="button" id='draw' ng-click='submit()' class="btn btn-danger"></button>
+          <button view name='toggle' type="button" id='view' ng-click='view()' class="btn btn-default"></input>
     </span>
   </div>
   </div>
@@ -15,9 +15,9 @@
   <div id='live-stream' ng-hide="initial">
   </div>
 
-    <div id='canvasActions'>
+    <div id='canvasActions' class=" btn-group btn-group-justified" ng-show="initial">
       <button ng-click="uploadCanvas()">Upload Canvas Image</button>
-      <button>Reset Canvas</button>
+      <button ng-click="clearCanvas()">Reset Canvas</button>
     </div>
 
 

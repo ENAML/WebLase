@@ -55,6 +55,7 @@
 	display: inline-block;
 	position: relative;
 	font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+	letter-spacing:-2px;
 	font-size: 6.5vw;
 	top: -1.0vh;
 	left: 12.5vw;
@@ -77,6 +78,7 @@
 	position: relative;
 	color: black;
 	font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+	letter-spacing:-1px;
 	font-size: 2.5vw;
 	left: 7vw;
 	font-weight:bold;
@@ -129,10 +131,11 @@
 }
 
 #filey {
-	width: 80px;
+	width: 70px;
+	font-size: 9px;
 	position: relative;
 	top: 70px;
-	left: 47px;
+	left: 55px;
 }
 
 #direction {
@@ -155,6 +158,24 @@
 
 #upload-btn:hover {
 	background-image: url(/images/upload2.png);
+}
+
+button[ng-click="uploadCanvas()"] {
+	background-color: white;
+	border: #FF002F solid 2px;
+	border-top: none;
+	position: relative;
+	right: 5px;
+}
+
+
+button[ng-click="clearCanvas()"] {
+	background-color: white;
+	border: none;
+	border-bottom: #FF002F solid 2px;
+	background-color: #FF002F;
+	position: relative;
+	right: 5px;
 }
 
 
