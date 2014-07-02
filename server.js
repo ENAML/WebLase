@@ -6,6 +6,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     socket = require('./lib/controllers/socket').chat;
 
+
 /**
  * Main application file
  */
@@ -35,12 +36,18 @@ var app = express();
 require('./lib/config/express')(app);
 require('./lib/routes')(app);
 
+
+
 // Start server
 var server = app.listen(config.port, config.ip, function () {
   console.log('Express server listening on %s:%d, in %s mode', config.ip, config.port, app.get('env'));
 });
 
+
+// Setup Queue Array and socket communication
+app.set('imageQueue', []);
 var socketConnect = new socket(server);
+require("./socketTalk")(app, socketConnect);
 
 // Expose app
 exports = module.exports = app;
