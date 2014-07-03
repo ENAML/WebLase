@@ -4,7 +4,8 @@ var express = require('express'),
     path = require('path'),
     fs = require('fs'),
     mongoose = require('mongoose'),
-    socket = require('./lib/controllers/socket').chat;
+    io = require('socket.io');
+    // socket = require('./lib/controllers/socket').chat;
 
 
 /**
@@ -46,7 +47,7 @@ var server = app.listen(config.port, config.ip, function () {
 
 // Setup Queue Array and socket communication
 app.set('imageQueue', []);
-var socketConnect = new socket(server);
+var socketConnect = new io(server);
 require("./socketTalk")(app, socketConnect);
 
 // Expose app
