@@ -9,15 +9,15 @@ angular.module('webLaseAppApp')
       console.log(dataURL);
 
       $.ajax({
-          type: "POST",
-          url: "/UploadCanvas",
-          data: {
-              files: dataURL
-          }
+        type: "POST",
+        url: "/UploadCanvas",
+        data: {
+          files: dataURL
+        }
       }).done(function(o) {
-          console.log('all_saved');
-
+        console.log('all_saved');
       });
+      $scope.clearCanvas();
     };
 
     $scope.clearCanvas = function() {
@@ -76,7 +76,6 @@ angular.module('webLaseAppApp')
        Could be used to upload files to CouchDB, imgur, etc... html5 FileReader is needed.
        It could also be used to monitor the progress of a normal http post/put request with large data*/
     // $scope.upload = $upload.http({...})  see 88#issuecomment-31366487 for sample code.
-
   };
 });
 
