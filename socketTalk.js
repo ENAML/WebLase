@@ -16,7 +16,9 @@ module.exports = function(app, sockets){
         callback({fileName: null, buffer: null});
       } else {
         fs.readFile(fileName, function(err, buf) {
-          callback({fileName: fileName, buffer: buf});
+          var newFileName = fileName.split('/')[0];
+          console.log(newFileName);
+          callback({fileName: newFileName, buffer: buf});
         });
       }
 

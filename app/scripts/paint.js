@@ -23,7 +23,7 @@ window.onload=function(){
     }, false);
 
     /* Drawing on Paint App */
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2;
     ctx.lineJoin = 'round';
     ctx.lineCap = 'round';
     ctx.strokeStyle = 'black';
