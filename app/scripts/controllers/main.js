@@ -3,6 +3,19 @@
 angular.module('webLaseAppApp')
   .controller('MainCtrl', function ($scope, $http, $upload) {
 
+
+
+
+    $scope.getQueue = function() {
+      $http.get('/queue').success(function(data) {
+        var imageArray = angular.fromJson(data).queue;
+        $scope.queueLength = imageArray.length + 1;
+        console.log($scope.queueLength);
+
+      });
+
+    };
+
     $scope.uploadCanvas = function() {
       var canvas = document.getElementById('paint');
       var dataURL = canvas.toDataURL();
@@ -51,12 +64,7 @@ angular.module('webLaseAppApp')
     $scope.files = $files;
   };
 
-  $scope.getQueue = function() {
-    $http.get('/queue').success(function(data) {
-      var imageArray = angular.fromJson(data).queue;
-      console.log('There are ' + imageArray.length + ' in queue - please wait for your image to be processed.');
-    });
-  };
+
 
   $scope.submitFiles = function($files) {
     for (var i = 0; i < $files.length; i++) {

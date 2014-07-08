@@ -180,3 +180,15 @@ button[ng-click="clearCanvas()"] {
 }
 
 
+#queue-length {
+  clear: both;
+  position: absolute;
+  right: 0;
+  top: 500px;
+  font-size: 12px;
+  font-family: "Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace;
+  color: #fff;
+  padding: 20px;
+  width: 250px;
+  text-align: right;
+}

@@ -6,11 +6,11 @@
     </span>
   </div>
   </div>
-    <div id="sketch" ng-show="initial">
+  <div id="sketch" ng-show="initial">
 
-      <canvas id="paint"></canvas>
+    <canvas id="paint"></canvas>
 
-    </div>
+  </div>
 
   <div id='live-stream' ng-hide="initial">
   </div>
@@ -30,3 +30,5 @@
       </a>
       <p id='direction'> select an image and click the arrow to upload it</p>
     </div>
+
+    <span ng-if='queueLength' id="queue-length">There are {{queueLength}} items in the image queue. Please wait...</span>
