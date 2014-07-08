@@ -9,7 +9,7 @@ angular.module('webLaseAppApp')
     $scope.getQueue = function() {
       $http.get('/queue').success(function(data) {
         var imageArray = angular.fromJson(data).queue;
-        $scope.queueLength = imageArray.length + 1;
+        $scope.queueLength = imageArray.length + 1; //fix so don't need +1
         console.log($scope.queueLength);
 
       });
