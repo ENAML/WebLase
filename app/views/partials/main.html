@@ -25,10 +25,9 @@
     <div id ="upload" ng-show="initial">
 
       <input id="filey" type="file" ng-file-select="onFileSelect($files)" accept="image/*">
-      <a id="arrow" ng-click="submitFiles(files)">
+      <a id="arrow" ng-click="submitFiles(files)" ng-show="files">
         <div id="upload-btn"></div>
       </a>
-      <p id='direction'> select an image and click the arrow to upload it</p>
     </div>
 
     <span ng-if='queueLength' id="queue-length">There are {{queueLength}} items in the image queue. Please wait...</span>

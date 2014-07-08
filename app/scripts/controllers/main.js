@@ -44,7 +44,7 @@ angular.module('webLaseAppApp')
       context.clearRect(0, 0, canvas.width, canvas.height);
     };
 
-    $scope.initial = false;
+    $scope.initial = false; // hi
 
 
     $scope.view = function() {
