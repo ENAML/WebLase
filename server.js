@@ -49,7 +49,7 @@ var server = app.listen(config.port, config.ip, function () {
 app.set('imageQueue', []);
 global.embedCode = '';
 var socketConnect = new io(server);
-require("./socketTalk")(app, socketConnect);
+require("./lib/socketTalk")(app, socketConnect);
 
 // Expose app
 exports = module.exports = app;

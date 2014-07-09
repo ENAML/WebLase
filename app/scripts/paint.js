@@ -1,6 +1,4 @@
-window.onload=function(){
-
-  document.getElementById('draw').onclick=function(){
+window.onCanvas =function(){
 
     var canvas = document.getElementById('paint');
     var ctx = canvas.getContext('2d');
@@ -42,7 +40,6 @@ window.onload=function(){
     var onPaint = function() {
         ctx.lineTo(mouse.x, mouse.y);
         ctx.stroke();
-  };
   };
 };
 

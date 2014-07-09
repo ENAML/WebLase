@@ -1,7 +1,7 @@
 // 'use strict';
 
 angular.module('webLaseAppApp')
-  .controller('MainCtrl', function ($scope, $http, $upload) {
+  .controller('MainCtrl', function ($scope, $http, $upload, $timeout) {
 
 
     $scope.getQueue = function() {
@@ -59,6 +59,7 @@ angular.module('webLaseAppApp')
 
     $scope.submit = function() {
       $scope.initial = true;
+      $timeout(window.onCanvas); //need $timeout b/c canvas isn't ready immediate and waits for next event loop
     };
 
 
