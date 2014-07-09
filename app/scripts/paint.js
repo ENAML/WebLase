@@ -42,4 +42,3 @@ window.onCanvas =function(){
         ctx.stroke();
   };
 };
-

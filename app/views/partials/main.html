@@ -29,10 +29,11 @@
 <!-- make btn on side -->
     <div id ="upload" ng-show="initial">
 
-      <input id="filey" type="file" ng-file-select="onFileSelect($files)" accept="image/*">
+      <input id="filey" type="file" ng-file-select="onFileSelect($files)" accept="image/png, image/jpg, image/bmp">
       <a id="arrow" ng-click="submitFiles(files)" ng-show="files">
         <div id="upload-btn"></div>
       </a>
+      <p id="direction">please only upload jpg, png, and bitmap images that aren't too complex (i.e. no photos) </p>
     </div>
 
     <span ng-if='queueLength' id="queue-length">There are {{queueLength}} items in the image queue. Please wait...</span>
