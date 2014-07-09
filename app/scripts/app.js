@@ -27,6 +27,10 @@ angular.module('webLaseAppApp', [
         controller: 'SettingsCtrl',
         authenticate: true
       })
+      .when('/guccifame', {
+        templateUrl: 'partials/guccifame',
+        controller: 'guccifame'
+      })
       .otherwise({
         redirectTo: '/'
       });

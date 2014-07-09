@@ -4,36 +4,41 @@ angular.module('webLaseAppApp')
   .controller('MainCtrl', function ($scope, $http, $upload) {
 
 
-
-
     $scope.getQueue = function() {
       $http.get('/queue').success(function(data) {
         var imageArray = angular.fromJson(data).queue;
-        $scope.queueLength = imageArray.length + 1; //fix so don't need +1
+        $scope.queueLength = imageArray.length; //fix so don't need +1
         console.log($scope.queueLength);
 
       });
 
     };
 
+
+
     $scope.uploadCanvas = function() {
       var canvas = document.getElementById('paint');
       var dataURL = canvas.toDataURL();
       console.log(dataURL);
 
-      //$http.post('/UploadCanvas', dataURL).success;
-
-      $.ajax({
-        type: "POST",
-        url: "/UploadCanvas",
-        data: {
-          files: dataURL
-        }
-      }).done(function(o) {
-        console.log('all_saved');
+      $http.post('/UploadCanvas', {'files': dataURL}).success(function(data){
+        console.log(data);
+        $scope.getQueue();
+        $scope.clearCanvas();
       });
-      $scope.clearCanvas();
-      $scope.getQueue();
+
+      // $.ajax({
+      //   type: "POST",
+      //   url: "/UploadCanvas",
+      //   data: {
+      //     files: dataURL
+      //   }
+      // }).done(function() {
+      //   console.log('all_saved');
+      //   $scope.getQueue();
+      // });
+      // $scope.clearCanvas();
+
     };
 
     $scope.clearCanvas = function() {
@@ -85,6 +90,7 @@ angular.module('webLaseAppApp')
       }).success(function(data, status, headers, config) {
         // file is uploaded successfully
         console.log(data);
+        $scope.getQueue();
       });
       //.error(...)
       //.then(success, error, progress);
@@ -95,7 +101,7 @@ angular.module('webLaseAppApp')
        It could also be used to monitor the progress of a normal http post/put request with large data*/
     // $scope.upload = $upload.http({...})  see 88#issuecomment-31366487 for sample code.
 
-  $scope.getQueue();
+
   };
 });
 

@@ -13,6 +13,11 @@
   </div>
 
   <div id='live-stream' ng-hide="initial">
+    <% if (embedCode != ''){ %>
+      <iframe width="100%" height="580px" src="//www.youtube.com/embed/<%= embedCode %>"
+         frameborder="0" allowfullscreen></iframe>
+    <% } %>
+        <!-- gQfBuQk0EAw -->
   </div>
 
     <div id='canvasActions' class=" btn-group btn-group-justified" ng-show="initial">

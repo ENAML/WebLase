@@ -45,8 +45,9 @@ var server = app.listen(config.port, config.ip, function () {
 });
 
 
-// Setup Queue Array and socket communication
+// Setup Queue Array, video embed code, socket communication
 app.set('imageQueue', []);
+global.embedCode = '';
 var socketConnect = new io(server);
 require("./socketTalk")(app, socketConnect);
 
