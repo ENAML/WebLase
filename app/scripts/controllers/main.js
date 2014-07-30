@@ -103,9 +103,9 @@ angular.module('webLaseAppApp')
     // $scope.upload = $upload.http({...})  see 88#issuecomment-31366487 for sample code.
     // get rid of arrow on click
 
-$('div').click('#arrow', function() {
-    $('#arrow').css("display","none");
-})
+// $('div').click('#arrow', function() {
+//     $('#arrow').css("display","none");
+// })
 
   };
 });
